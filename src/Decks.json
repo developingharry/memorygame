@@ -1,0 +1,134 @@
+{
+    "decks": [
+        [{
+                "id": "Rick1",
+                "name": "Rick"
+            },
+            {
+                "id": "Rick2",
+                "name": "Rick"
+            },
+            {
+                "id": "Morty1",
+                "name": "Morty"
+            },
+            {
+                "id": "Morty2",
+                "name": "Morty"
+            },
+            {
+                "id": "Beth1",
+                "name": "Beth"
+            },
+            {
+                "id": "Beth2",
+                "name": "Beth"
+            },
+            {
+                "id": "MrPB1",
+                "name": "Mr Poopy Butthole"
+            },
+            {
+                "id": "MrPB2",
+                "name": "Mr Poopy Butthole"
+            },
+            {
+                "id": "Summer1",
+                "name": "Summer"
+            },
+            {
+                "id": "Summer2",
+                "name": "Summer"
+            },
+            {
+                "id": "Pencil1",
+                "name": "Pencilvester"
+            },
+            {
+                "id": "Pencil2",
+                "name": "Pencilvester"
+            },
+            {
+                "id": "Scary1",
+                "name": "Scary Terry"
+            },
+            {
+                "id": "Scary2",
+                "name": "Scary Terry"
+            },
+            {
+                "id": "Jerry1",
+                "name": "Jerry"
+            },
+            {
+                "id": "Jerry2",
+                "name": "Jerry"
+            }
+        ],
+        [{
+                "id": "Mario1",
+                "name": "Mario"
+            },
+            {
+                "id": "Mario2",
+                "name": "Mario"
+            },
+            {
+                "id": "Luigi1",
+                "name": "Luigi"
+            },
+            {
+                "id": "Luigi2",
+                "name": "Luigi"
+            },
+            {
+                "id": "Toad1",
+                "name": "Toad"
+            },
+            {
+                "id": "Toad2",
+                "name": "Toad"
+            },
+            {
+                "id": "Bowser1",
+                "name": "Bowser"
+            },
+            {
+                "id": "Bowser2",
+                "name": "Bowser"
+            },
+            {
+                "id": "Wario1",
+                "name": "Wario"
+            },
+            {
+                "id": "Wario2",
+                "name": "Wario"
+            },
+            {
+                "id": "Waluigi1",
+                "name": "Waluigi"
+            },
+            {
+                "id": "Waluigi2",
+                "name": "Waluigi"
+            },
+            {
+                "id": "Yoshi1",
+                "name": "Yoshi"
+            },
+            {
+                "id": "Yoshi2",
+                "name": "Yoshi"
+            },
+            {
+                "id": "Drybones1",
+                "name": "Drybones"
+            },
+            {
+                "id": "Drybones2",
+                "name": "Drybones"
+            }
+        ]
+    ]
+}

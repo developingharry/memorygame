@@ -1,0 +1,12 @@
+.board {
+  width: 50vw;
+}
+.card {
+  border: 1px solid grey;
+  width: 5vw;
+  margin: 4px;
+  padding: 4px;
+  text-align: center;
+  float: left;
+  height: 10vh;
+}
