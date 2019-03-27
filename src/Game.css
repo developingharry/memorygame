@@ -3,10 +3,17 @@
 }
 .card {
   border: 1px solid grey;
-  width: 5vw;
+  width: 10vw;
   margin: 4px;
   padding: 4px;
   text-align: center;
   float: left;
   height: 10vh;
+}
+
+td {
+  border: 1px solid green;
+}
+
+.TestCenter {
 }
