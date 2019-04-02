@@ -3,6 +3,7 @@ import './Game.css';
 import Header from './Header';
 import TestCenter from './TestCenter';
 import * as data from './Decks.json';
+import cardback from './images/cardback.png';
 
 class Game extends Component {
   constructor(props) {
@@ -43,6 +44,7 @@ class Game extends Component {
     this.resetCounter = this.resetCounter.bind(this);
     this.matchCheck = this.matchCheck.bind(this);
     this.checkHand = this.checkHand.bind(this);
+    this.contents = this.contents.bind(this);
   }
   
   resetCounter() {
@@ -102,7 +104,7 @@ class Game extends Component {
         this.cardCounter=3;
         this.addMove();
         if(this.pairs===8) {
-          this.winSequence();
+          this.winSequence(card);
         }
         break;
       case 3:
@@ -217,11 +219,12 @@ class Game extends Component {
     let chosenCard = `${card.pos}status`;
     switch(this.state[chosenCard]) {
       case 'flipped':
-        return(card.name);
+        return <img src={require('./images/' +card.name+'.png')} className="cardface" alt="blah"/>
+        // return <img src= {card.name} className="cardfront" alt={card.name}/>;
       case 'solved':
-        return(card.name);
+      return <img src={require('./images/' +card.name+'.png')} className="cardface solved" alt="blah"/>
       default:
-        return('xxxxxxxxxxxxxxxxxx');
+        return <img src={cardback} className="cardback" alt="back of the card"/>;
     }
   }
 

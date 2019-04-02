@@ -2,13 +2,23 @@
   width: 50vw;
 }
 .card {
-  border: 1px solid grey;
-  width: 10vw;
-  margin: 4px;
-  padding: 4px;
+  width: 8vw;
+
   text-align: center;
   float: left;
-  height: 10vh;
+  height: 13vh;
+}
+
+.cardface {
+  width: 8vw;
+}
+
+.cardback {
+  width: 8vw;
+}
+
+.solved {
+  border: 1px solid blue;
 }
 
 td {

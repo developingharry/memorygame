@@ -2,132 +2,132 @@
     "decks": [
         [{
                 "id": "Rick1",
-                "name": "Rick"
+                "name": "rick"
             },
             {
                 "id": "Rick2",
-                "name": "Rick"
+                "name": "rick"
             },
             {
                 "id": "Morty1",
-                "name": "Morty"
+                "name": "morty"
             },
             {
                 "id": "Morty2",
-                "name": "Morty"
+                "name": "morty"
             },
             {
                 "id": "Beth1",
-                "name": "Beth"
+                "name": "beth"
             },
             {
                 "id": "Beth2",
-                "name": "Beth"
+                "name": "beth"
             },
             {
                 "id": "MrPB1",
-                "name": "Mr Poopy Butthole"
+                "name": "mrpb"
             },
             {
                 "id": "MrPB2",
-                "name": "Mr Poopy Butthole"
+                "name": "mrpb"
             },
             {
                 "id": "Summer1",
-                "name": "Summer"
+                "name": "summer"
             },
             {
                 "id": "Summer2",
-                "name": "Summer"
+                "name": "summer"
             },
             {
                 "id": "Pencil1",
-                "name": "Pencilvester"
+                "name": "pencilvester"
             },
             {
                 "id": "Pencil2",
-                "name": "Pencilvester"
+                "name": "pencilvester"
             },
             {
                 "id": "Scary1",
-                "name": "Scary Terry"
+                "name": "scaryterry"
             },
             {
                 "id": "Scary2",
-                "name": "Scary Terry"
+                "name": "scaryterry"
             },
             {
                 "id": "Jerry1",
-                "name": "Jerry"
+                "name": "jerry"
             },
             {
                 "id": "Jerry2",
-                "name": "Jerry"
+                "name": "jerry"
             }
         ],
         [{
                 "id": "Mario1",
-                "name": "Mario"
+                "name": "mario"
             },
             {
                 "id": "Mario2",
-                "name": "Mario"
+                "name": "mario"
             },
             {
                 "id": "Luigi1",
-                "name": "Luigi"
+                "name": "luigi"
             },
             {
                 "id": "Luigi2",
-                "name": "Luigi"
+                "name": "luigi"
             },
             {
                 "id": "Toad1",
-                "name": "Toad"
+                "name": "toad"
             },
             {
                 "id": "Toad2",
-                "name": "Toad"
+                "name": "toad"
             },
             {
                 "id": "Bowser1",
-                "name": "Bowser"
+                "name": "bowser"
             },
             {
                 "id": "Bowser2",
-                "name": "Bowser"
+                "name": "bowser"
             },
             {
                 "id": "Wario1",
-                "name": "Wario"
+                "name": "wario"
             },
             {
                 "id": "Wario2",
-                "name": "Wario"
+                "name": "wario"
             },
             {
                 "id": "Waluigi1",
-                "name": "Waluigi"
+                "name": "waluigi"
             },
             {
                 "id": "Waluigi2",
-                "name": "Waluigi"
+                "name": "waluigi"
             },
             {
                 "id": "Yoshi1",
-                "name": "Yoshi"
+                "name": "yoshi"
             },
             {
                 "id": "Yoshi2",
-                "name": "Yoshi"
+                "name": "yoshi"
             },
             {
                 "id": "Drybones1",
-                "name": "Drybones"
+                "name": "drybones"
             },
             {
                 "id": "Drybones2",
-                "name": "Drybones"
+                "name": "drybones"
             }
         ]
     ]
