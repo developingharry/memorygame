@@ -8,8 +8,8 @@ class TestCenter extends Component {
                 Test Center
                 <p>in the left hand is {this.props.lh}</p>
                 <p>in the right hand is {this.props.rh}</p>
-                <p>what's in a1: {this.props.a1}</p>
-                <button onClick={this.props.prepDeck}>here</button>
+                <p>cardcounter is {this.props.cardCounter}</p>
+                <button onClick={this.props.resetCounter}>reset counter</button>
                 <table>
                     <tbody>
                         <tr>
