@@ -1,3 +1,5 @@
+This is an attempt to recreate a past memory game project in React, to teach myself the library.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
