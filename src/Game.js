@@ -21,6 +21,7 @@ class Game extends Component {
       deck:data.decks[0],
       rating: "*****",
       moves: 0,
+      gamename: 'Rick and Morty',
       a1status: 'default',
       a2status: 'default',
       a3status: 'default',
@@ -213,6 +214,20 @@ class Game extends Component {
     this.shuffleDeck(deck);
     this.assignPos(deck);
     this.setState({deck:deck});
+    switch(deck) {
+      case this.mortyDeck:
+        this.setState(prevState => ({
+          gamename: 'Rick & Morty'
+        }))
+        break;
+      case this.marioDeck:
+        this.setState(prevState => ({
+          gamename: 'Super Mario'
+        }))
+        break;
+      default:
+        console.log('something went wrong, there doesnt appear to be a game name to set');
+    }
   }
 
   contents(card) {
@@ -220,24 +235,25 @@ class Game extends Component {
     switch(this.state[chosenCard]) {
       case 'flipped':
         return <img src={require('./images/' +card.name+'.png')} className="cardface" alt="blah"/>
-        // return <img src= {card.name} className="cardfront" alt={card.name}/>;
       case 'solved':
-      return <img src={require('./images/' +card.name+'.png')} className="cardface solved" alt="blah"/>
+      return <img src={require('./images/' +card.name+'.png')} className="solved cardface" alt="blah"/>
       default:
         return <img src={cardback} className="cardback" alt="back of the card"/>;
     }
   }
 
+
+  //TODO: split deck into 4/3
+
   render() {
     return (
-      <div>
-        in the left hand is {this.leftHand} and in the right hand is {this.rightHand}.
-        {this.state.pairs}/8 pairs found
+      <div className="container">
         <Header moves={this.state.moves}
                 rating={this.state.rating} 
                 mortyButton={this.initGame.bind(this, this.mortyDeck)}
                 marioButton={this.initGame.bind(this, this.marioDeck)}
                 pairs={this.pairs}
+                gamename={this.state.gamename}
         />
 
 
@@ -263,7 +279,7 @@ class Game extends Component {
 
 
 
-        <TestCenter lh={this.state.leftHand}
+        {/* <TestCenter lh={this.state.leftHand}
                     rh={this.state.rightHand}
 
                     a1={this.state.a1status}
@@ -287,7 +303,7 @@ class Game extends Component {
                     d4={this.state.d4status}
                     
                     cardCounter = {this.cardCounter}
-                    />
+                    /> */}
       </div>
 
     );
