@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './Game.css';
-import Header from './Header';
-import TestCenter from './TestCenter';
+import GameStats from './GameStats';
+import Row from './Row';
 import * as data from './Decks.json';
-import cardback from './images/cardback.png';
+import cardback from './images/cardback.gif';
 
 class Game extends Component {
   constructor(props) {
@@ -184,6 +184,10 @@ class Game extends Component {
     this.rightcardtoflip=null;
     this.setState({
       deck:data.decks[0],
+      rowA: [],
+      rowB: [],
+      rowC: [],
+      rowD: [],
       rating: "*****",
       moves: 0,
       a1status: 'default',
@@ -209,11 +213,20 @@ class Game extends Component {
     this.initGame(this.mortyDeck);
   }
 
+  splitDeck(deck) {
+    let a = deck.slice(0,4);
+    let b = deck.slice(4,8);
+    let c = deck.slice(8,12);
+    let d = deck.slice(12);
+    this.setState({rowA:a,rowB:b,rowC:c,rowD:d});
+  }
+
   initGame(deck) {
     this.resetGame();
     this.shuffleDeck(deck);
     this.assignPos(deck);
     this.setState({deck:deck});
+    this.splitDeck(deck);
     switch(deck) {
       case this.mortyDeck:
         this.setState(prevState => ({
@@ -242,69 +255,25 @@ class Game extends Component {
     }
   }
 
-
-  //TODO: split deck into 4/3
-
   render() {
     return (
       <div className="container">
-        <Header moves={this.state.moves}
-                rating={this.state.rating} 
-                mortyButton={this.initGame.bind(this, this.mortyDeck)}
-                marioButton={this.initGame.bind(this, this.marioDeck)}
-                pairs={this.pairs}
-                gamename={this.state.gamename}
-        />
-
-
-        <div className="board">
-          {this.state.deck.map(card => (
-            <div  key={card.id}
-                  onClick={this.clickhandler.bind(this, card)}
-                  className="card">
-                  {this.contents.call(this, card)}
-            </div>
-          ))}
+          <div className="row">
+            <header className={this.state.gamename==="Rick & Morty" ? "rickandmorty col-12" : "supermario col-12"}>
+              The Big {this.state.gamename} Memory Game Thing
+            </header>
+          </div>
+          <GameStats moves={this.state.moves}
+                  rating={this.state.rating} 
+                  mortyButton={this.initGame.bind(this, this.mortyDeck)}
+                  marioButton={this.initGame.bind(this, this.marioDeck)}
+                  pairs={this.pairs}
+                  gamename={this.state.gamename}/>
+          <Row contents={this.contents} clickhandler={this.clickhandler} cards={this.state.rowA}/>
+          <Row contents={this.contents} clickhandler={this.clickhandler} cards={this.state.rowB}/>
+          <Row contents={this.contents} clickhandler={this.clickhandler} cards={this.state.rowC}/>
+          <Row contents={this.contents} clickhandler={this.clickhandler} cards={this.state.rowD}/>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-        {/* <TestCenter lh={this.state.leftHand}
-                    rh={this.state.rightHand}
-
-                    a1={this.state.a1status}
-                    a2={this.state.a2status}
-                    a3={this.state.a3status}
-                    a4={this.state.a4status}
-
-                    b1={this.state.b1status}
-                    b2={this.state.b2status}
-                    b3={this.state.b3status}
-                    b4={this.state.b4status}
-
-                    c1={this.state.c1status}
-                    c2={this.state.c2status}
-                    c3={this.state.c3status}
-                    c4={this.state.c4status}
-
-                    d1={this.state.d1status}
-                    d2={this.state.d2status}
-                    d3={this.state.d3status}
-                    d4={this.state.d4status}
-                    
-                    cardCounter = {this.cardCounter}
-                    /> */}
-      </div>
 
     );
   }

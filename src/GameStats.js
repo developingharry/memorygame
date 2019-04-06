@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Game.css';
 
-class Header extends Component {
+class GameStats extends Component {
     checkSomething(){
         switch(this.props.moves){
             case 0:
@@ -35,22 +35,18 @@ class Header extends Component {
     render() {
         return (
             <div className={this.props.gamename==="Rick & Morty" ? "rickandmorty row" : "supermario row"}>
-                <header>The Big {this.props.gamename} Memory Game Thing</header>
-                <hr/>
-                <div className="col-4">Moves: {this.props.moves}</div>
-                <div className="col-4">Rating: {this.checkSomething.call(this)}</div>
-                <div className="col-4">Pairs: {this.props.pairs}/8</div>
-                <div className="col-4"></div>
-                <div className="newgamebuttons col-4">                
+                <div className="col-2">Moves: {this.props.moves}</div>
+                <div className="col-2">Rating: {this.checkSomething.call(this)}</div>
+                <div className="col-2">Pairs: {this.props.pairs}/8</div>
+                <div className="newgamebuttons col-6">                
                     New Game:
                     <button className="mortybutton btn btn-info" onClick={this.props.mortyButton}>Rick & Morty</button>
                     <button className="mariobutton btn btn-danger" onClick={this.props.marioButton}>Super Mario</button>
+                    <button className="restartbutton btn btn-success">restart</button>
                 </div>
-                <div className="col-4"></div>
-                <hr/>
             </div>
         )
     }
 }
 
-export default Header;
+export default GameStats;
