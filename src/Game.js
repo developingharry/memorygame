@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './Game.css';
-import GameStats from './GameStats';
-import Row from './Row';
 import * as data from './Decks.json';
 import cardback from './images/cardback.gif';
+import GameStats from './GameStats';
+import Buttons from './GameStats';
 
 class Game extends Component {
   constructor(props) {
@@ -213,14 +213,6 @@ class Game extends Component {
     this.initGame(this.mortyDeck);
   }
 
-  splitDeck(deck) {
-    let a = deck.slice(0,4);
-    let b = deck.slice(4,8);
-    let c = deck.slice(8,12);
-    let d = deck.slice(12);
-    this.setState({rowA:a,rowB:b,rowC:c,rowD:d});
-  }
-
   initGame(deck) {
     this.resetGame();
     this.shuffleDeck(deck);
@@ -251,32 +243,43 @@ class Game extends Component {
       case 'solved':
       return <img src={require('./images/' +card.name+'.png')} className="solved cardface" alt="blah"/>
       default:
-        return <img src={cardback} className="cardback" alt="back of the card"/>;
+        // return <img src={cardback} className="cardback" alt="back of the card"/>;
+      return <img src={require('./images/300.jpg')} className="cardback" alt="back of the card"/>;
     }
+  }
+
+  splitDeck(deck) {
+    let a = deck.slice(0,7);
+    let b = deck.slice(7,14);
+    let c = deck.slice(7,9);
+    let d = deck.slice(10,15);
+    this.setState({rowA:a,rowB:b,rowC:c,rowD:d});
   }
 
   render() {
     return (
-      <div className="container">
-          <div className="row">
+      <div className="gameboard">
             <header className={this.state.gamename==="Rick & Morty" ? "rickandmorty col-12" : "supermario col-12"}>
               The Big {this.state.gamename} Memory Game Thing
             </header>
-          </div>
-          <GameStats moves={this.state.moves}
+            <div class="container-fluid">
+            <GameStats moves={this.state.moves}
                   rating={this.state.rating} 
                   mortyButton={this.initGame.bind(this, this.mortyDeck)}
                   marioButton={this.initGame.bind(this, this.marioDeck)}
+                  restart={this.initGame.bind(this, this.state.deck)}
                   pairs={this.pairs}
-                  gamename={this.state.gamename}/>
-          <Row contents={this.contents} clickhandler={this.clickhandler} cards={this.state.rowA}/>
-          <Row contents={this.contents} clickhandler={this.clickhandler} cards={this.state.rowB}/>
-          <Row contents={this.contents} clickhandler={this.clickhandler} cards={this.state.rowC}/>
-          <Row contents={this.contents} clickhandler={this.clickhandler} cards={this.state.rowD}/>
-        </div>
-
-    );
+                  gamename={this.state.gamename}/>            
+            </div>
+            {this.state.deck.map(card => (
+              <Card key={card.id} card={card} clickhandler={this.clickhandler} contents={this.contents}/>
+            ))}
+      </div>
+    )
   }
 }
 
+const Card = (props) => {
+  return <div key={props.key} onClick={props.clickhandler.bind(this, props.card)} className="col-lg-2 col-md-3 cardsquare">{props.contents.call(this, props.card)}</div>
+}
 export default Game;

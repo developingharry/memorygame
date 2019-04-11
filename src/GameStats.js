@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Game.css';
 
 class GameStats extends Component {
-    checkSomething(){
+    rating(){
         switch(this.props.moves){
             case 0:
             case 1:
@@ -34,19 +34,23 @@ class GameStats extends Component {
     }
     render() {
         return (
-            <div className={this.props.gamename==="Rick & Morty" ? "rickandmorty row" : "supermario row"}>
-                <div className="col-2">Moves: {this.props.moves}</div>
-                <div className="col-2">Rating: {this.checkSomething.call(this)}</div>
-                <div className="col-2">Pairs: {this.props.pairs}/8</div>
-                <div className="newgamebuttons col-6">                
-                    New Game:
+            <div className={this.props.gamename==="Rick & Morty" ? "rickandmorty stats row" : "supermario stats row"}>
+                <div className="stat col-lg-2 col-md-4">Moves: {this.props.moves}</div>
+                <div className="stat col-lg-2 col-md-4">Rating: {this.rating.call(this)}</div>
+                <div className="stat col-lg-2 col-md-4">Pairs: {this.props.pairs}/8</div>
+                <div className="newgamebuttons col-md-auto">
+                    <div className="stat newgamelabel">New Game:</div>
                     <button className="mortybutton btn btn-info" onClick={this.props.mortyButton}>Rick & Morty</button>
                     <button className="mariobutton btn btn-danger" onClick={this.props.marioButton}>Super Mario</button>
-                    <button className="restartbutton btn btn-success">restart</button>
+                    <button className="restartbutton btn btn-success" onClick={this.props.restart}>restart</button>
                 </div>
             </div>
         )
     }
+}
+
+const Buttons = (props) => {
+    return <div>Hello</div>
 }
 
 export default GameStats;

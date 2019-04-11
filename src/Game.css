@@ -1,10 +1,41 @@
-header {
-  text-align: center;
+.cardsquare {
+  float: left;
 }
 
 html {
-  font-size: 0.85em;
+  font-size: 1em;
 }
+
+header {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2vh;
+}
+
+.cardback {
+  width: 100%;
+}
+
+.stat {
+  float: left;
+  font-size: 1.4rem;
+  margin-bottom: 1vh;
+}
+
+.newgamelabel {
+  text-align: right;
+}
+
+
+/* TODO - set up css for mobile first, with buttons and such at bottom right */
+.gameboard {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
+  width: 80vw;
+}
+
+
 .rickandmorty, 
 .mortybutton {
   font-family: 'Gloria Hallelujah', cursive;
@@ -21,23 +52,9 @@ html {
   font-family: monospace;
 }
 
-.board {
-  max-height: 10vh;
-}
 
-.cardline {
-  margin: 0 auto;
-  height: 24vh;
-}
-.card {
-  height: 100%;
-}
 
-.cardback,
-.cardface {
-  height: 100%;
-  width: auto;
-  object-fit: contain;
+.gamestats {
 }
 
 .solved {
