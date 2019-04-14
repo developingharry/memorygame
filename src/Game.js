@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './Game.css';
 import * as data from './Decks.json';
-import cardback from './images/cardback.gif';
+import ramcardback from './images/ramcardback.png';
+import mariocardback from './images/mariocardback.png';
 import GameStats from './GameStats';
 import Buttons from './GameStats';
 
@@ -184,6 +185,7 @@ class Game extends Component {
     this.rightcardtoflip=null;
     this.setState({
       deck:data.decks[0],
+      cardback: ramcardback,
       rowA: [],
       rowB: [],
       rowC: [],
@@ -222,12 +224,14 @@ class Game extends Component {
     switch(deck) {
       case this.mortyDeck:
         this.setState(prevState => ({
-          gamename: 'Rick & Morty'
+          gamename: 'Rick & Morty',
+          cardback: ramcardback
         }))
         break;
       case this.marioDeck:
         this.setState(prevState => ({
-          gamename: 'Super Mario'
+          gamename: 'Super Mario',
+          cardback: mariocardback
         }))
         break;
       default:
@@ -243,8 +247,7 @@ class Game extends Component {
       case 'solved':
       return <img src={require('./images/' +card.name+'.png')} className="solved cardface" alt="blah"/>
       default:
-        // return <img src={cardback} className="cardback" alt="back of the card"/>;
-      return <img src={require('./images/300.jpg')} className="cardback" alt="back of the card"/>;
+      return <img src={this.state.cardback} className="cardback" alt="back of the card"/>;
     }
   }
 

@@ -1,0 +1,108 @@
+$mariofont: 'Luckiest Guy', cursive;
+$mortyfont: 'Gloria Hallelujah', cursive;
+$primary-color: #333;
+$breakpoints: (
+    "phone":        400px,
+    "phone-wide":   480px,
+    "phablet":      560px,
+    "tablet-small": 640px,
+    "tablet":       768px,
+    "tablet-wide":  1024px,
+    "desktop":      1248px,
+    "desktop-wide": 1440px
+);
+@mixin mq($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @if $type == max {
+            $width: $width - 1px;
+        }
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+@mixin antialias {
+	font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    font-size: 1em;
+    @include antialias;
+}
+
+header {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2vh;
+}
+
+//stats bar
+.rickandmorty,
+.mortybutton {
+    font-family: $mortyfont;
+    color: $primary-color;
+}
+
+.supermario,
+.mariobutton {
+    font-family: $mariofont;
+    color: $primary-color;
+}
+
+.restartbutton {
+    font-family: monospace;
+}
+
+.newgamelabel {
+    text-align: right;
+}
+
+.stat {
+    float: left;
+    font-size: 1.4rem;
+    margin-bottom: 1vh;
+}
+
+//game board
+
+.gameboard {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%);
+    width: 80vw;
+}
+
+//individual cards
+
+.cardsquare {
+    float: left;
+}
+
+.cardback,
+.cardface {
+    width: 100%;
+}
+
+.solved {
+    border: 1px solid blue;
+}
+
+//example use of the media query (mq) mixin.  not actually used in site.
+.site-header {
+    padding: 2rem;
+    font-size: 1.8rem;
+    @include mq('tablet-wide') {
+        padding-top: 4rem;
+        font-size: 2.4rem;
+    }
+}
+
+
+
+
+
+
