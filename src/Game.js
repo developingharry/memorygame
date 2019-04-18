@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './Game.css';
+import './csshake-little.min.css'
 import * as data from './Decks.json';
 import ramcardback from './images/ramcardback.png';
 import mariocardback from './images/mariocardback.png';
 import GameStats from './GameStats';
-import Buttons from './GameStats';
+// import Buttons from './GameStats';
 
 class Game extends Component {
   constructor(props) {
@@ -18,27 +19,36 @@ class Game extends Component {
     this.matchFound=false;
     this.leftcardtoflip=null;
     this.rightcardtoflip=null;
+    this.mainbg= {
+      backgroundImage: 'url("./images/bg.jpg")',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }
     this.state={
       deck:data.decks[0],
       rating: "*****",
       moves: 0,
       gamename: 'Rick and Morty',
+      showWinDialog: false,
       a1status: 'default',
       a2status: 'default',
       a3status: 'default',
       a4status: 'default',
+      a5status: 'default',
+      a6status: 'default',
       b1status: 'default',
       b2status: 'default',
       b3status: 'default',
       b4status: 'default',
+      b5status: 'default',
+      b6status: 'default',
       c1status: 'default',
       c2status: 'default',
       c3status: 'default',
       c4status: 'default',
-      d1status: 'default',
-      d2status: 'default',
-      d3status: 'default',
-      d4status: 'default'
+      c5status: 'default',
+      c6status: 'default'
     };
     this.clickhandler = this.clickhandler.bind(this);
     this.flipBack = this.flipBack.bind(this);
@@ -47,6 +57,7 @@ class Game extends Component {
     this.matchCheck = this.matchCheck.bind(this);
     this.checkHand = this.checkHand.bind(this);
     this.contents = this.contents.bind(this);
+    this.closeWinDialog = this.closeWinDialog.bind(this);
   }
   
   resetCounter() {
@@ -70,7 +81,9 @@ class Game extends Component {
   }
 
   winSequence() {
-    alert('your winner');
+    this.setState({
+      showWinDialog: true
+    })
   }
 
   acknowledgeMatch(){
@@ -105,7 +118,7 @@ class Game extends Component {
         this.matchCheck();
         this.cardCounter=3;
         this.addMove();
-        if(this.pairs===8) {
+        if(this.pairs===9) {
           this.winSequence(card);
         }
         break;
@@ -150,7 +163,7 @@ class Game extends Component {
           }
           break;
         case 'solved':
-          alert('this card is already solved');
+          // alert('this card is already solved');
         break;
         default:
           alert('something went wrong');
@@ -168,7 +181,7 @@ class Game extends Component {
 
   assignPos(deck) {
     console.log('assigning positions');
-    let positions = ['a1','a2','a3','a4','b1','b2','b3','b4','c1','c2','c3','c4','d1','d2','d3','d4'];
+    let positions = ['a1','a2','a3','a4','a5','a6','b1','b2','b3','b4','b5','b6','c1','c2','c3','c4','c5','c6'];
     for (var i = 0; i < positions.length; i++) {
       deck[i].pos = positions[i];
       console.log("finished assigning positions");
@@ -184,8 +197,6 @@ class Game extends Component {
     this.leftcardtoflip=null;
     this.rightcardtoflip=null;
     this.setState({
-      deck:data.decks[0],
-      cardback: ramcardback,
       rowA: [],
       rowB: [],
       rowC: [],
@@ -196,23 +207,31 @@ class Game extends Component {
       a2status: 'default',
       a3status: 'default',
       a4status: 'default',
+      a5status: 'default',
+      a6status: 'default',
       b1status: 'default',
       b2status: 'default',
       b3status: 'default',
       b4status: 'default',
+      b5status: 'default',
+      b6status: 'default',
       c1status: 'default',
       c2status: 'default',
       c3status: 'default',
       c4status: 'default',
-      d1status: 'default',
-      d2status: 'default',
-      d3status: 'default',
-      d4status: 'default'
+      c5status: 'default',
+      c6status: 'default'
     });
   }
 
   componentWillMount() {
     this.initGame(this.mortyDeck);
+    document.body.classList.add('mortybg');
+  }
+
+  backgroundSwitch(game) {
+    //TODO - make a switch case to remove classes
+    // ie    document.body.classList.remove('lorem ipsum');
   }
 
   initGame(deck) {
@@ -226,13 +245,17 @@ class Game extends Component {
         this.setState(prevState => ({
           gamename: 'Rick & Morty',
           cardback: ramcardback
-        }))
+        }));
+        document.body.classList.toggle("mariobg", false);
+        document.body.classList.add("mortybg");
         break;
       case this.marioDeck:
         this.setState(prevState => ({
           gamename: 'Super Mario',
           cardback: mariocardback
-        }))
+        }));
+        document.body.classList.toggle("mortybg", false);
+        document.body.classList.add("mariobg");
         break;
       default:
         console.log('something went wrong, there doesnt appear to be a game name to set');
@@ -245,7 +268,7 @@ class Game extends Component {
       case 'flipped':
         return <img src={require('./images/' +card.name+'.png')} className="cardface" alt="blah"/>
       case 'solved':
-      return <img src={require('./images/' +card.name+'.png')} className="solved cardface" alt="blah"/>
+      return <img src={require('./images/' +card.name+'.png')} className="solved shake-little cardface" alt="blah"/>
       default:
       return <img src={this.state.cardback} className="cardback" alt="back of the card"/>;
     }
@@ -259,6 +282,11 @@ class Game extends Component {
     this.setState({rowA:a,rowB:b,rowC:c,rowD:d});
   }
 
+  closeWinDialog() {
+    this.setState({showWinDialog:false});
+    this.resetGame();
+  }
+
   render() {
     return (
       <div className="gameboard">
@@ -266,17 +294,21 @@ class Game extends Component {
               The Big {this.state.gamename} Memory Game Thing
             </header>
             <div class="container-fluid">
-            <GameStats moves={this.state.moves}
-                  rating={this.state.rating} 
+            <GameStats
                   mortyButton={this.initGame.bind(this, this.mortyDeck)}
                   marioButton={this.initGame.bind(this, this.marioDeck)}
                   restart={this.initGame.bind(this, this.state.deck)}
-                  pairs={this.pairs}
                   gamename={this.state.gamename}/>            
             </div>
             {this.state.deck.map(card => (
               <Card key={card.id} card={card} clickhandler={this.clickhandler} contents={this.contents}/>
             ))}
+            {this.state.showWinDialog &&
+              <WinSplash  clickhandler={this.closeWinDialog}
+                          moves={this.state.moves}
+                          rating={this.state.rating}            
+              />  
+            }
       </div>
     )
   }
@@ -285,4 +317,14 @@ class Game extends Component {
 const Card = (props) => {
   return <div key={props.key} onClick={props.clickhandler.bind(this, props.card)} className="col-lg-2 col-md-3 cardsquare">{props.contents.call(this, props.card)}</div>
 }
+
+const WinSplash = (props) => {
+  return <div className="winsplash">
+            hello you must have won or something big whoop.
+            You did it in {props.moves} moves, giving you a rating of {props.rating}
+            <button onClick={props.clickhandler}>x</button>
+          </div>
+}
+
 export default Game;
+

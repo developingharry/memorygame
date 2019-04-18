@@ -65,12 +65,12 @@
                 "name": "jerry"
             },
             {
-                "id": "Scary3",
-                "name": "scaryterry"
+                "id": "Bird1",
+                "name": "birdperson"
             },
             {
-                "id": "Scary4",
-                "name": "scaryterry"
+                "id": "Bird2",
+                "name": "birdperson"
             }
         ],
         [{
@@ -135,6 +135,14 @@
             },
             {
                 "id": "Drybones2",
+                "name": "drybones"
+            },
+            {
+                "id": "Drybones3",
+                "name": "drybones"
+            },
+            {
+                "id": "Drybones4",
                 "name": "drybones"
             }
         ]

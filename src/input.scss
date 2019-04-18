@@ -40,6 +40,25 @@ header {
     margin-bottom: 2vh;
 }
 
+%bg {
+    /* Full height */
+    height: 100vh;
+    /* Center and scale the image nicely */
+    background-position: initial;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.mariobg {
+    @extend %bg;
+    background-image: url('./images/mariobg.jpg');
+}
+
+.mortybg {
+    @extend %bg;
+    background-image: url('./images/mortybg.jpg');
+}
+
 //stats bar
 .rickandmorty,
 .mortybutton {
@@ -74,6 +93,16 @@ header {
     left: 50%;
     transform: translate(-50%);
     width: 80vw;
+}
+
+.winsplash {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px;
 }
 
 //individual cards

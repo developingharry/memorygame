@@ -35,9 +35,6 @@ class GameStats extends Component {
     render() {
         return (
             <div className={this.props.gamename==="Rick & Morty" ? "rickandmorty stats row" : "supermario stats row"}>
-                <div className="stat col-lg-2 col-md-4">Moves: {this.props.moves}</div>
-                <div className="stat col-lg-2 col-md-4">Rating: {this.rating.call(this)}</div>
-                <div className="stat col-lg-2 col-md-4">Pairs: {this.props.pairs}/8</div>
                 <div className="newgamebuttons col-md-auto">
                     <div className="stat newgamelabel">New Game:</div>
                     <button className="mortybutton btn btn-info" onClick={this.props.mortyButton}>Rick & Morty</button>
@@ -49,8 +46,8 @@ class GameStats extends Component {
     }
 }
 
-const Buttons = (props) => {
-    return <div>Hello</div>
-}
+// const Buttons = (props) => {
+//     return <div>Hello</div>
+// }
 
 export default GameStats;
