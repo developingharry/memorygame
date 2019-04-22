@@ -5,11 +5,17 @@ class Header extends Component {
     render() {
         return (
             <div className={this.props.gamename==="Rick & Morty" ? "rickandmorty" : "supermario"}>
-                <header>The Big {this.props.gamename} Memory Game Thing</header>
+                <header>{this.props.gamename} Memory Game 1.0</header>
                 <div className="newgamebuttons">
-                    <button className="mortybutton" onClick={this.props.mortyButton}>R</button>
-                    <button className="mariobutton" onClick={this.props.marioButton}>S</button>
-                    <button className="restartbutton" onClick={this.props.restart}>r</button>
+                    <div className="btn">
+                        <button className="mortybutton" onClick={this.props.mortyButton}>R</button>
+                    </div>
+                    <div className="btn">
+                        <button className="mariobutton" onClick={this.props.marioButton}>S</button>
+                    </div>
+                    <div className="btn">
+                        <button className="restartbutton" onClick={this.props.restart}>R</button>
+                    </div>
                 </div>
             </div>
         )

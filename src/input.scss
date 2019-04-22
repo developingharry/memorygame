@@ -3,7 +3,7 @@ $mortyfont: 'Gloria Hallelujah', cursive;
 $morty-color: white;
 $mario-color: black;
 $breakpoints: (
-    "phone":        400px,
+    "phone":        360px,
     "phone-wide":   480px,
     "phablet":      560px,
     "tablet-small": 640px,
@@ -49,40 +49,52 @@ $breakpoints: (
 //stats bar
 
 header {
+    color: red;
+    font-size: 116%;
+    margin-bottom: 1vh;
     text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2vh;
+    @include mq('phone') {
+        color: red;
+        font-size: 116%;
+        margin-bottom: 1vh;
+    }
 }
 
-.rickandmorty,
-.mortybutton {
+%button {
+    margin: 0 auto;
+    color: black;
+}
+
+.btn {
+    padding: 0;
+}
+.rickandmorty {
     font-family: $mortyfont;
     color: $morty-color;
 }
 
-.supermario,
-.mariobutton {
+.supermario {
     font-family: $mariofont;
     color: $mario-color;
 }
 
 .restartbutton {
-    font-family: monospace;
 }
 
 .newgamebuttons {
     position: fixed;
     left: 0;
     top: 0;
+    display: block;
 }
 
 //game board
 
 .gameboard {
     position: fixed;
-    left: 50%;
+    left: 59%;
     transform: translate(-50%);
-    width: 80vw;
+    width: 100vw;
 }
 
 .winsplash {
@@ -99,6 +111,9 @@ header {
 
 .cardsquare {
     float: left;
+    width: 26vw;
+    // top right bottom left
+    margin: 0 2vw 0.2vh 0;
 }
 
 .cardback,

@@ -16,38 +16,45 @@
 }
 
 header {
+  color: red;
+  font-size: 116%;
+  margin-bottom: 1vh;
   text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2vh;
+}
+@media only screen and (min-width: 360px) {
+  header {
+    color: red;
+    font-size: 116%;
+    margin-bottom: 1vh;
+  }
 }
 
-.rickandmorty,
-.mortybutton {
+.btn {
+  padding: 0;
+}
+
+.rickandmorty {
   font-family: "Gloria Hallelujah", cursive;
   color: white;
 }
 
-.supermario,
-.mariobutton {
+.supermario {
   font-family: "Luckiest Guy", cursive;
   color: black;
-}
-
-.restartbutton {
-  font-family: monospace;
 }
 
 .newgamebuttons {
   position: fixed;
   left: 0;
   top: 0;
+  display: block;
 }
 
 .gameboard {
   position: fixed;
-  left: 50%;
+  left: 59%;
   transform: translate(-50%);
-  width: 80vw;
+  width: 100vw;
 }
 
 .winsplash {
@@ -62,6 +69,8 @@ header {
 
 .cardsquare {
   float: left;
+  width: 26vw;
+  margin: 0 2vw 0.2vh 0;
 }
 
 .cardback,
