@@ -1,6 +1,7 @@
 $mariofont: 'Luckiest Guy', cursive;
 $mortyfont: 'Gloria Hallelujah', cursive;
-$primary-color: #333;
+$morty-color: white;
+$mario-color: black;
 $breakpoints: (
     "phone":        400px,
     "phone-wide":   480px,
@@ -11,6 +12,8 @@ $breakpoints: (
     "desktop":      1248px,
     "desktop-wide": 1440px
 );
+
+
 @mixin mq($width, $type: min) {
     @if map_has_key($breakpoints, $width) {
         $width: map_get($breakpoints, $width);
@@ -23,22 +26,6 @@ $breakpoints: (
     }
 }
 
-@mixin antialias {
-	font-smoothing: antialiased;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-html {
-    font-size: 1em;
-    @include antialias;
-}
-
-header {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2vh;
-}
 
 %bg {
     /* Full height */
@@ -60,30 +47,33 @@ header {
 }
 
 //stats bar
+
+header {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2vh;
+}
+
 .rickandmorty,
 .mortybutton {
     font-family: $mortyfont;
-    color: $primary-color;
+    color: $morty-color;
 }
 
 .supermario,
 .mariobutton {
     font-family: $mariofont;
-    color: $primary-color;
+    color: $mario-color;
 }
 
 .restartbutton {
     font-family: monospace;
 }
 
-.newgamelabel {
-    text-align: right;
-}
-
-.stat {
-    float: left;
-    font-size: 1.4rem;
-    margin-bottom: 1vh;
+.newgamebuttons {
+    position: fixed;
+    left: 0;
+    top: 0;
 }
 
 //game board
@@ -117,7 +107,7 @@ header {
 }
 
 .solved {
-    border: 1px solid blue;
+    opacity: 0.5;
 }
 
 //example use of the media query (mq) mixin.  not actually used in site.

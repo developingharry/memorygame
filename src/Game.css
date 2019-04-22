@@ -1,16 +1,3 @@
-html {
-  font-size: 1em;
-  font-smoothing: antialiased;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-header {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2vh;
-}
-
 .mortybg, .mariobg {
   /* Full height */
   height: 100vh;
@@ -28,30 +15,32 @@ header {
   background-image: url("./images/mortybg.jpg");
 }
 
+header {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2vh;
+}
+
 .rickandmorty,
 .mortybutton {
   font-family: "Gloria Hallelujah", cursive;
-  color: #333;
+  color: white;
 }
 
 .supermario,
 .mariobutton {
   font-family: "Luckiest Guy", cursive;
-  color: #333;
+  color: black;
 }
 
 .restartbutton {
   font-family: monospace;
 }
 
-.newgamelabel {
-  text-align: right;
-}
-
-.stat {
-  float: left;
-  font-size: 1.4rem;
-  margin-bottom: 1vh;
+.newgamebuttons {
+  position: fixed;
+  left: 0;
+  top: 0;
 }
 
 .gameboard {
@@ -81,7 +70,7 @@ header {
 }
 
 .solved {
-  border: 1px solid blue;
+  opacity: 0.5;
 }
 
 .site-header {
