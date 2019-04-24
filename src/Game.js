@@ -3,8 +3,7 @@ import './Game.css';
 import * as data from './Decks.json';
 import ramcardback from './images/ramcardback.png';
 import mariocardback from './images/mariocardback.png';
-import Header from './Header';
-// import Buttons from './GameStats';
+import Menu from './Menu.js';
 
 class Game extends Component {
   constructor(props) {
@@ -30,6 +29,7 @@ class Game extends Component {
       moves: 0,
       gamename: 'Rick and Morty',
       showWinDialog: false,
+      showMenu: true,
       a1status: 'default',
       a2status: 'default',
       a3status: 'default',
@@ -272,14 +272,17 @@ class Game extends Component {
     this.setState({rowA:a,rowB:b,rowC:c,rowD:d});
   }
 
+  menuToggle() {
+    this.setState(prevState => ({
+      showMenu: !prevState.showMenu
+    }));
+  }
+
   render() {
     return (
       <div>
-        <Header
-          mortyButton={this.initGame.bind(this, this.mortyDeck)}
-          marioButton={this.initGame.bind(this, this.marioDeck)}
-          restart={this.initGame.bind(this, this.state.deck)}
-          gamename={this.state.gamename}/>
+        <Hamburger showmenu= {this.state.showMenu} clickhandler={this.menuToggle.bind(this)}/>
+        <header className={this.state.gamename==="Rick & Morty" ? "rickandmorty" : "supermario"}>{this.state.gamename} Memory Game 1.0</header>
         <div className="gameboard">
           {this.state.deck.map(card => (
             <Card key={card.id} card={card} clickhandler={this.clickhandler} contents={this.contents}/>
@@ -291,10 +294,25 @@ class Game extends Component {
                       rating={this.state.rating}            
           />  
         }
+        {this.state.showMenu &&
+          <Menu mortyButton={this.initGame.bind(this, this.mortyDeck)}
+                marioButton={this.initGame.bind(this, this.marioDeck)}
+                restart={this.initGame.bind(this, this.state.deck)}
+                gamename={this.state.gamename}/>
+        }
       </div>
     )
   }
 }
+
+const Hamburger = (props) => {
+      return <div className={props.showmenu === false ? "hamburger" : "hamburger change"} onClick={props.clickhandler}>
+          <div className="bar1"></div>
+          <div className="bar2"></div>
+          <div className="bar3"></div>
+      </div>
+}
+
 
 const Card = (props) => {
   return <div onClick={props.clickhandler.bind(this, props.card)} className="cardsquare">{props.contents.call(this, props.card)}</div>

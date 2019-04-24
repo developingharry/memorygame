@@ -60,14 +60,41 @@ header {
     }
 }
 
-%button {
-    margin: 0 auto;
-    color: black;
+.newgamebuttons {
+    border: 1px dashed black;
+    padding: 10%;
 }
 
-.btn {
-    padding: 0;
+%button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    width: 100%;
+    cursor: pointer;
 }
+
+.newgamelabel {
+    text-align: center;
+}
+
+.mortybutton {
+    @extend %button;
+    font-family: $mortyfont;
+    background-color: rgb(127, 76, 175);
+}
+
+.mariobutton {
+    @extend %button;
+    font-family: $mariofont;
+    background-color: rgb(187, 79, 79);
+    
+}
+
 .rickandmorty {
     font-family: $mortyfont;
     color: $morty-color;
@@ -79,13 +106,26 @@ header {
 }
 
 .restartbutton {
+    @extend %button;
+    background-color: #4CAF50;
 }
 
-.newgamebuttons {
+.menu {
+    z-index: 1;
+    background-color: white;
     position: fixed;
-    left: 0;
+    padding: 10px;
+    border-radius: 0 0 10% 0;
+    border: 1px solid black;
     top: 0;
-    display: block;
+    left: 0;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    outline: 1px solid black;
 }
 
 //game board
@@ -135,7 +175,39 @@ header {
     }
 }
 
+.hamburger {
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    display: inline-block;
+    cursor: pointer;
+}
 
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+    transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+    opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(45deg) translate(-8px, -8px) ;
+}
 
 
 
