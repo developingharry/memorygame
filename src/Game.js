@@ -29,7 +29,7 @@ class Game extends Component {
       moves: 0,
       gamename: 'Rick and Morty',
       showWinDialog: false,
-      showMenu: true,
+      showMenu: false,
       a1status: 'default',
       a2status: 'default',
       a3status: 'default',
