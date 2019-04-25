@@ -170,7 +170,7 @@ class Game extends Component {
           // alert('this card is already solved');
         break;
         default:
-          alert('something went wrong');
+          alert('something went wrong - this generally means a change to the deck has been made without updating positions.');
       }
   }
 

@@ -132,12 +132,17 @@ header {
 
 .gameboard {
     position: fixed;
-    top: 7%;
+    top: 1%;
     left: 52%;
     transform: translate(-50%);
     width: 100vw;
 }
 
+.gameboard::after {
+    text-align: center;
+    content: 'MENU';
+    width: 100%;
+}
 .winsplash {
     position: fixed;
     left: 50%;
