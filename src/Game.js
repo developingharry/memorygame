@@ -36,18 +36,24 @@ class Game extends Component {
       a4status: 'default',
       a5status: 'default',
       a6status: 'default',
-      b1status: 'default',
-      b2status: 'default',
-      b3status: 'default',
-      b4status: 'default',
-      b5status: 'default',
-      b6status: 'default',
-      c1status: 'default',
-      c2status: 'default',
-      c3status: 'default',
-      c4status: 'default',
-      c5status: 'default',
-      c6status: 'default'
+      a7status: 'default',
+      a8status: 'default',
+      a9status: 'default',
+      a10status: 'default',
+      a11status: 'default',
+      a12status: 'default',
+      a13status: 'default',
+      a14status: 'default',
+      a15status: 'default',
+      a16status: 'default',
+      a17status: 'default',
+      a18status: 'default',
+      a19status: 'default',
+      a20status: 'default',
+      a21status: 'default',
+      a22status: 'default',
+      a23status: 'default',
+      a24status: 'default'
     };
     this.clickhandler = this.clickhandler.bind(this);
     this.flipBack = this.flipBack.bind(this);
@@ -179,7 +185,7 @@ class Game extends Component {
 
   assignPos(deck) {
     console.log('assigning positions');
-    let positions = ['a1','a2','a3','a4','a5','a6','b1','b2','b3','b4','b5','b6','c1','c2','c3','c4','c5','c6'];
+    let positions = ['a1','a2','a3','a4','a5','a6','a7','a8','a9','a10','a11','a12','a13','a14','a15','a16','a17','a18','a19','a20','a21','a22','a23','a24'];
     for (var i = 0; i < positions.length; i++) {
       deck[i].pos = positions[i];
       console.log("finished assigning positions");
@@ -204,18 +210,24 @@ class Game extends Component {
       a4status: 'default',
       a5status: 'default',
       a6status: 'default',
-      b1status: 'default',
-      b2status: 'default',
-      b3status: 'default',
-      b4status: 'default',
-      b5status: 'default',
-      b6status: 'default',
-      c1status: 'default',
-      c2status: 'default',
-      c3status: 'default',
-      c4status: 'default',
-      c5status: 'default',
-      c6status: 'default'
+      a7status: 'default',
+      a8status: 'default',
+      a9status: 'default',
+      a10status: 'default',
+      a11status: 'default',
+      a12status: 'default',
+      a13status: 'default',
+      a14status: 'default',
+      a15status: 'default',
+      a16status: 'default',
+      a17status: 'default',
+      a18status: 'default',
+      a19status: 'default',
+      a20status: 'default',
+      a21status: 'default',
+      a22status: 'default',
+      a23status: 'default',
+      a24status: 'default'
     });
   }
 
