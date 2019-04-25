@@ -282,7 +282,6 @@ class Game extends Component {
     return (
       <div>
         <Hamburger showmenu= {this.state.showMenu} clickhandler={this.menuToggle.bind(this)}/>
-        <header className={this.state.gamename==="Rick & Morty" ? "rickandmorty" : "supermario"}>{this.state.gamename} Memory Game 1.0</header>
         <div className="gameboard">
           {this.state.deck.map(card => (
             <Card key={card.id} card={card} clickhandler={this.clickhandler} contents={this.contents}/>
