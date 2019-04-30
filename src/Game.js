@@ -269,9 +269,9 @@ class Game extends Component {
     let chosenCard = `${card.pos}status`;
     switch(this.state[chosenCard]) {
       case 'flipped':
-        return <img src={require('./images/' +card.name+'.png')} className="cardface" alt="blah"/>
+        return <img src={require('./images/' +card.name+'.jpg')} className="cardface" alt="blah"/>
       case 'solved':
-      return <img src={require('./images/' +card.name+'.png')} className="solved cardface" alt="blah"/>
+      return <img src={require('./images/' +card.name+'.jpg')} className="solved cardface" alt="blah"/>
       default:
       return <img src={this.state.cardback} className="cardback" alt="back of the card"/>;
     }

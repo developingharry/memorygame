@@ -168,6 +168,30 @@
             {
                 "id": "Peach2",
                 "name": "peach"
+            },
+            {
+                "id": "Donkeykong1",
+                "name": "donkeykong"
+            },            
+            {
+                "id": "Donkeykong2",
+                "name": "donkeykong"
+            },
+            {
+                "id": "Goomba1",
+                "name": "goomba"
+            },
+            {
+                "id": "Goomba2",
+                "name": "goomba"
+            },
+            {
+                "id": "Shyguy1",
+                "name": "shyguy"
+            },
+            {
+                "id": "Shyguy2",
+                "name": "shyguy"
             }
         ]
     ]
