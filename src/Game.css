@@ -75,18 +75,6 @@ header {
   background-color: #4CAF50;
 }
 
-.menu {
-  z-index: 1;
-  background-color: white;
-  position: fixed;
-  padding: 10px;
-  border-radius: 0 0 10% 0;
-  border: 1px solid black;
-  top: 0;
-  left: 0;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
-}
-
 .disabled {
   opacity: 0.6;
   cursor: not-allowed;
@@ -99,14 +87,59 @@ header {
   left: 52%;
   transform: translate(-50%);
   width: 100vw;
+  z-index: 2;
 }
 
-.gameboard::after {
-  text-align: center;
-  content: "MENU";
-  width: 100%;
+.cardbox {
+  position: fixed;
+  z-index: 5;
+  width: 50vw;
+  margin-left: 25%;
+  bottom: -174px;
 }
 
+.menu-down, .menu-up, .menu-static {
+  z-index: 4;
+  background-color: white;
+  position: fixed;
+  padding: 10px;
+  border-radius: 10% 10% 10% 10%;
+  border: 1px solid black;
+  top: 30%;
+  left: 20%;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+  animation-duration: 2s;
+}
+
+.menu-static {
+  top: 85%;
+}
+
+.menu-up {
+  animation-name: cardflyup;
+}
+
+.menu-down {
+  animation-name: cardflydown;
+}
+
+/* The animation code */
+@keyframes cardflyup {
+  from {
+    top: 85%;
+  }
+  to {
+    top: 30%;
+  }
+}
+@keyframes cardflydown {
+  from {
+    top: 30%;
+  }
+  to {
+    top: 85%;
+  }
+}
 .winsplash {
   position: fixed;
   left: 50%;
@@ -141,6 +174,15 @@ header {
     padding-top: 4rem;
     font-size: 2.4rem;
   }
+}
+
+#clickmask {
+  position: fixed;
+  background-color: green;
+  width: 100vw;
+  height: 100vh;
+  z-index: 3;
+  opacity: 0.5;
 }
 
 .hamburger {

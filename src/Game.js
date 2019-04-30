@@ -3,6 +3,7 @@ import './Game.css';
 import * as data from './Decks.json';
 import ramcardback from './images/ramcardback.png';
 import mariocardback from './images/mariocardback.png';
+import cardbox from './images/box.png';
 import Menu from './Menu.js';
 
 class Game extends Component {
@@ -290,10 +291,13 @@ class Game extends Component {
     }));
   }
 
+
+  // <Hamburger showmenu= {this.state.showMenu} clickhandler={this.menuToggle.bind(this)}/>
+
+
   render() {
     return (
       <div>
-        <Hamburger showmenu= {this.state.showMenu} clickhandler={this.menuToggle.bind(this)}/>
         <div className="gameboard">
           {this.state.deck.map(card => (
             <Card key={card.id} card={card} clickhandler={this.clickhandler} contents={this.contents}/>
@@ -305,12 +309,13 @@ class Game extends Component {
                       rating={this.state.rating}            
           />  
         }
-        {this.state.showMenu &&
           <Menu mortyButton={this.initGame.bind(this, this.mortyDeck)}
                 marioButton={this.initGame.bind(this, this.marioDeck)}
                 restart={this.initGame.bind(this, this.state.deck)}
-                gamename={this.state.gamename}/>
-        }
+                gamename={this.state.gamename}
+                //for the menu launcher
+                imagesrc={cardbox}
+          />
       </div>
     )
   }
