@@ -93,9 +93,10 @@ header {
 .cardbox {
   position: fixed;
   z-index: 5;
-  width: 50vw;
-  margin-left: 25%;
-  bottom: -174px;
+  width: 60vw;
+  margin-left: 20%;
+  bottom: -220px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
 }
 
 .menu-down, .menu-up, .menu-static {
@@ -106,8 +107,8 @@ header {
   border-radius: 10% 10% 10% 10%;
   border: 1px solid black;
   top: 30%;
-  left: 20%;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+  left: 22.5%;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   animation-duration: 2s;
 }
 
@@ -179,7 +180,6 @@ header {
 
 #clickmask {
   position: fixed;
-  background-color: green;
   width: 100vw;
   height: 100vh;
   z-index: 3;
