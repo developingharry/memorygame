@@ -16,6 +16,7 @@ class Menu extends Component {
     }
 
     showMenu() {
+        // alert("flipping up the menu");
         this.toggleMenu();
         var menu = document.getElementById('menu');
         menu.classList.toggle("menu-static",false);
@@ -24,6 +25,7 @@ class Menu extends Component {
     }
 
     hideMenu() {
+        // alert("flipping down the menu");
         this.toggleMenu();
         var menu = document.getElementById('menu');
         menu.classList.toggle("menu-up", false);

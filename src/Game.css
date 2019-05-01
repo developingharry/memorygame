@@ -82,19 +82,14 @@ header {
 }
 
 .gameboard {
-  position: fixed;
-  top: 1%;
-  left: 52%;
-  transform: translate(-50%);
-  width: 100vw;
-  z-index: 2;
+  width: 98vw;
+  margin-left: 1.1vw;
 }
 
 .cardbox {
   position: relative;
-  z-index: 5;
+  z-index: 9;
   width: 100%;
-  top: 76vw;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -108,11 +103,12 @@ header {
 .menu-down, .menu-up, .menu-static {
   z-index: 4;
   background-color: white;
-  position: relative;
+  position: absolute;
   border-radius: 10% 10% 10% 10%;
   border: 1px solid black;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   animation-duration: 2s;
+  animation-fill-mode: forwards;
 }
 
 .menu-up {
@@ -126,18 +122,18 @@ header {
 /* The animation code */
 @keyframes cardflyup {
   from {
-    top: 85%;
+    top: 0vh;
   }
   to {
-    top: 30%;
+    top: -49vh;
   }
 }
 @keyframes cardflydown {
   from {
-    top: 30%;
+    top: -49vh;
   }
   to {
-    top: 85%;
+    top: 0vh;
   }
 }
 .winsplash {
@@ -179,19 +175,12 @@ header {
 
 #clickmask {
   position: fixed;
+  top: 0vh;
+  left: 0vw;
   width: 100vw;
   height: 100vh;
   z-index: 3;
   opacity: 0.5;
-}
-
-.hamburger {
-  position: fixed;
-  z-index: 2;
-  left: 0;
-  top: 0;
-  display: inline-block;
-  cursor: pointer;
 }
 
 .bar1, .bar2, .bar3 {
