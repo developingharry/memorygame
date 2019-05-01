@@ -111,6 +111,10 @@ header {
   animation-fill-mode: forwards;
 }
 
+.menu-hidden {
+  display: none;
+}
+
 .menu-up {
   animation-name: cardflyup;
 }

@@ -153,11 +153,14 @@ header {
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
     animation-duration: 2s;
     animation-fill-mode: forwards;
-    // display: none;
 }
 
 .menu-static {
     @extend %menu;
+}
+
+.menu-hidden {
+    display: none;
 }
 
 .menu-up {

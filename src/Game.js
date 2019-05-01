@@ -205,6 +205,7 @@ class Game extends Component {
       showWinDialog: false,
       rating: "*****",
       moves: 0,
+      loadmenu: false,
       a1status: 'default',
       a2status: 'default',
       a3status: 'default',
@@ -235,6 +236,10 @@ class Game extends Component {
   componentWillMount() {
     this.initGame(this.mortyDeck);
     document.body.classList.add('mortybg');
+  }
+
+  componentDidMount() {
+    this.setState({loadmenu: true});
   }
 
   initGame(deck) {

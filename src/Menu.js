@@ -16,16 +16,14 @@ class Menu extends Component {
     }
 
     showMenu() {
-        // alert("flipping up the menu");
         this.toggleMenu();
         var menu = document.getElementById('menu');
-        menu.classList.toggle("menu-static",false);
+        menu.classList.toggle("menu-hidden",false);
         menu.classList.toggle("menu-down",false);
         menu.classList.add("menu-up");
     }
 
     hideMenu() {
-        // alert("flipping down the menu");
         this.toggleMenu();
         var menu = document.getElementById('menu');
         menu.classList.toggle("menu-up", false);
@@ -51,7 +49,7 @@ class Menu extends Component {
 }
 
 const MenuCard = (props) => {
-    return  <div id="menu" className="menu-static">
+    return  <div id="menu" className="menu-hidden">
                 <div className="newgamelabel">New Game:</div>
                 <div className="newgamebuttons">
                     <div className="btn">
