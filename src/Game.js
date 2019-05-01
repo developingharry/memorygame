@@ -321,15 +321,6 @@ class Game extends Component {
   }
 }
 
-const Hamburger = (props) => {
-      return <div className={props.showmenu === false ? "hamburger" : "hamburger change"} onClick={props.clickhandler}>
-          <div className="bar1"></div>
-          <div className="bar2"></div>
-          <div className="bar3"></div>
-      </div>
-}
-
-
 const Card = (props) => {
   return <div onClick={props.clickhandler.bind(this, props.card)} className="cardsquare">{props.contents.call(this, props.card)}</div>
 }

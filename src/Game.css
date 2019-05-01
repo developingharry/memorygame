@@ -91,29 +91,28 @@ header {
 }
 
 .cardbox {
-  position: fixed;
+  position: relative;
   z-index: 5;
-  width: 60vw;
-  margin-left: 20%;
-  bottom: -220px;
+  width: 100%;
+  top: 76vw;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+.menu-wrapper {
+  position: fixed;
+  z-index: 6;
+  width: 90vw;
+  margin-left: 5vw;
 }
 
 .menu-down, .menu-up, .menu-static {
   z-index: 4;
   background-color: white;
-  position: fixed;
-  padding: 10px;
+  position: relative;
   border-radius: 10% 10% 10% 10%;
   border: 1px solid black;
-  top: 30%;
-  left: 22.5%;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   animation-duration: 2s;
-}
-
-.menu-static {
-  top: 85%;
 }
 
 .menu-up {
