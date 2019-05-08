@@ -3,7 +3,7 @@ import './Game.css';
 import * as data from './Decks.json';
 import ramcardback from './images/ramcardback.png';
 import mariocardback from './images/mariocardback.png';
-import cardbox from './images/box.png';
+import cardbox from './images/box.jpg';
 import Menu from './Menu.js';
 
 class Game extends Component {
@@ -18,6 +18,7 @@ class Game extends Component {
     this.matchFound=false;
     this.leftcardtoflip=null;
     this.rightcardtoflip=null;
+    this.gamename='Rick and Morty';
     this.mainbg= {
       backgroundImage: 'url("./images/bg.jpg")',
       backgroundRepeat: 'no-repeat',
@@ -28,7 +29,6 @@ class Game extends Component {
       deck:data.decks[0],
       rating: "*****",
       moves: 0,
-      gamename: 'Rick and Morty',
       showWinDialog: false,
       showMenu: false,
       a1status: 'default',
@@ -162,7 +162,8 @@ class Game extends Component {
           break;
         case 'flipped':
           if(this.cardCounter!==3){
-            alert('this card is already flipped');
+            console.log('this card is already flipped');
+            break;
           } else {
             this.checkHand(card);
           }
@@ -250,16 +251,16 @@ class Game extends Component {
     this.splitDeck(deck);
     switch(deck) {
       case this.mortyDeck:
+        this.gamename="Rick & Morty";
         this.setState(prevState => ({
-          gamename: 'Rick & Morty',
           cardback: ramcardback
         }));
         document.body.classList.toggle("mariobg", false);
         document.body.classList.add("mortybg");
         break;
       case this.marioDeck:
+        this.gamename="Rick & Morty";
         this.setState(prevState => ({
-          gamename: 'Super Mario',
           cardback: mariocardback
         }));
         document.body.classList.toggle("mortybg", false);
@@ -296,17 +297,13 @@ class Game extends Component {
     }));
   }
 
-
-  // <Hamburger showmenu= {this.state.showMenu} clickhandler={this.menuToggle.bind(this)}/>
-
-
   render() {
     return (
       <div>
         <table>
           <tbody>
             <tr>
-              <td>
+              <td className="topcell">
                 <div className="gameboard">
                   {this.state.deck.map(card => (
                     <Card key={card.id} card={card} clickhandler={this.clickhandler} contents={this.contents}/>
@@ -319,7 +316,7 @@ class Game extends Component {
                 <Menu mortyButton={this.initGame.bind(this, this.mortyDeck)}
                   marioButton={this.initGame.bind(this, this.marioDeck)}
                   restart={this.initGame.bind(this, this.state.deck)}
-                  gamename={this.state.gamename}
+                  gamename={this.gamename}
                   //for the menu launcher
                   imagesrc={cardbox}
                 />
