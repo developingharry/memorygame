@@ -237,6 +237,13 @@ class Game extends Component {
   componentWillMount() {
     this.initGame(this.mortyDeck);
     document.body.classList.add('mortybg');
+    window.addEventListener("load",function() {
+      // Set a timeout...
+      setTimeout(function(){
+        // Hide the address bar!
+        window.scrollTo(0, 1);
+      }, 0);
+    });
   }
 
   componentDidMount() {
