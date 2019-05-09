@@ -129,10 +129,10 @@ header {
 }
 
 .cardbox {
-    position: relative;
+    position: fixed;
     z-index: 9;
-    width: 100%;
-    // top: 76vw;
+    width: 88%;
+    top: 82%;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -158,6 +158,7 @@ header {
 
 .menu-static {
     @extend %menu;
+    top: 60%;
 }
 
 .menu-hidden {
@@ -176,13 +177,13 @@ header {
 
 /* The animation code */
 @keyframes cardflyup {
-    from {top: 0vh;}
-    to {top: -49vh;}
+    from {top: 82vh;}
+    to {top: 27vh;}
 }
 
 @keyframes cardflydown {
-    from {top: -49vh;}
-    to {top: 0vh;}
+    from {top: 27vh;}
+    to {top: 82vh;}
 }
 
 .winsplash {

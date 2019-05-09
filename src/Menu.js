@@ -48,54 +48,6 @@ class Menu extends Component {
     }
 }
 
-class Menu2 extends Component {
-    constructor(props) {
-        super(props);
-        this.displayMenu=false;
-    }
-
-
-    toggleMenu() {
-        if(this.showMenu) {
-            this.showMenu=false;
-        } else {
-            this.showMenu=true;
-        }
-    }
-
-    showMenu() {
-        this.toggleMenu();
-        var menu = document.getElementById('menu');
-        menu.classList.toggle("menu-hidden",false);
-        menu.classList.toggle("menu-down",false);
-        menu.classList.add("menu-up");
-    }
-
-    hideMenu() {
-        this.toggleMenu();
-        var menu = document.getElementById('menu');
-        menu.classList.toggle("menu-up", false);
-        menu.classList.add("menu-down");
-        menu.classList.toggle("menu-static",true);
-
-    }
-
-    render() {
-        return (
-            <div className="menu-wrapper">
-                <div>
-                    {this.displayMenu && <div><div id="clickmask" onClick={this.hideMenu.bind(this)}/></div>}
-                    <MenuCard gamename = {this.props.gamename} mortyButton = {this.props.mortyButton} marioButton={this.props.marioButton} restart={this.props.restart}/>
-                </div>
-                {this.displayMenu===true 
-                    ?   <img className="cardbox" onClick={this.hideMenu.bind(this)} src={this.props.imagesrc} alt="card box"/>
-                    :   <img className="cardbox" onClick={this.showMenu.bind(this)} src={this.props.imagesrc} alt="card box"/>
-                }
-            </div>
-        )
-    }
-}
-
 const MenuCard = (props) => {
     return  <div id="menu" className="menu-hidden">
                 <div className="newgamelabel">New Game:</div>

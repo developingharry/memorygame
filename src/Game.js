@@ -300,31 +300,18 @@ class Game extends Component {
   render() {
     return (
       <div>
-        <table>
-          <tbody>
-            <tr>
-              <td className="topcell">
-                <div className="gameboard">
-                  {this.state.deck.map(card => (
-                    <Card key={card.id} card={card} clickhandler={this.clickhandler} contents={this.contents}/>
-                  ))}
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <Menu mortyButton={this.initGame.bind(this, this.mortyDeck)}
-                  marioButton={this.initGame.bind(this, this.marioDeck)}
-                  restart={this.initGame.bind(this, this.state.deck)}
-                  gamename={this.gamename}
-                  //for the menu launcher
-                  imagesrc={cardbox}
-                />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
+        <div className="gameboard">
+          {this.state.deck.map(card => (
+            <Card key={card.id} card={card} clickhandler={this.clickhandler} contents={this.contents}/>
+          ))}
+        </div>
+        <Menu mortyButton={this.initGame.bind(this, this.mortyDeck)}
+          marioButton={this.initGame.bind(this, this.marioDeck)}
+          restart={this.initGame.bind(this, this.state.deck)}
+          gamename={this.gamename}
+          //for the menu launcher
+          imagesrc={cardbox}
+        />
         {this.state.showWinDialog &&
           <WinSplash  clickhandler={this.initGame.bind(this, this.state.deck)}
                       moves={this.state.moves}
@@ -335,6 +322,45 @@ class Game extends Component {
     )
   }
 }
+
+// render() {
+//   return (
+//     <div>
+//       <table>
+//         <tbody>
+//           <tr>
+//             <td className="topcell">
+//               <div className="gameboard">
+//                 {this.state.deck.map(card => (
+//                   <Card key={card.id} card={card} clickhandler={this.clickhandler} contents={this.contents}/>
+//                 ))}
+//               </div>
+//             </td>
+//           </tr>
+//           <tr>
+//             <td>
+//               <Menu mortyButton={this.initGame.bind(this, this.mortyDeck)}
+//                 marioButton={this.initGame.bind(this, this.marioDeck)}
+//                 restart={this.initGame.bind(this, this.state.deck)}
+//                 gamename={this.gamename}
+//                 //for the menu launcher
+//                 imagesrc={cardbox}
+//               />
+//             </td>
+//           </tr>
+//         </tbody>
+//       </table>
+
+//       {this.state.showWinDialog &&
+//         <WinSplash  clickhandler={this.initGame.bind(this, this.state.deck)}
+//                     moves={this.state.moves}
+//                     rating={this.state.rating}            
+//         />  
+//       }
+//     </div>
+//   )
+// }
+// }
 
 const Card = (props) => {
   return <div onClick={props.clickhandler.bind(this, props.card)} className="cardsquare">{props.contents.call(this, props.card)}</div>
