@@ -5,7 +5,6 @@ import ramcardback from './images/ramcardback.png';
 import mariocardback from './images/mariocardback.png';
 import menucardback from './images/menu.png';
 import movescardback from './images/moves.png'
-import cardbox from './images/box.jpg';
 import Menu from './Menu.js';
 import WinSplash from './WinSplash.js';
 
