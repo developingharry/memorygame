@@ -3,8 +3,11 @@ import './Game.css';
 import * as data from './Decks.json';
 import ramcardback from './images/ramcardback.png';
 import mariocardback from './images/mariocardback.png';
+import menucardback from './images/menu.png';
+import movescardback from './images/moves.png'
 import cardbox from './images/box.jpg';
 import Menu from './Menu.js';
+import WinSplash from './WinSplash.js';
 
 class Game extends Component {
   constructor(props) {
@@ -31,6 +34,7 @@ class Game extends Component {
       moves: 0,
       showWinDialog: false,
       showMenu: false,
+      cardback: ramcardback,
       a1status: 'default',
       a2status: 'default',
       a3status: 'default',
@@ -52,9 +56,7 @@ class Game extends Component {
       a19status: 'default',
       a20status: 'default',
       a21status: 'default',
-      a22status: 'default',
-      a23status: 'default',
-      a24status: 'default'
+      a22status: 'default'
     };
     this.clickhandler = this.clickhandler.bind(this);
     this.flipBack = this.flipBack.bind(this);
@@ -64,6 +66,7 @@ class Game extends Component {
     this.checkHand = this.checkHand.bind(this);
     this.contents = this.contents.bind(this);
     this.menuToggle = this.menuToggle.bind(this);
+    this.restartGame = this.restartGame.bind(this);
   }
   
   resetCounter() {
@@ -124,7 +127,7 @@ class Game extends Component {
         this.matchCheck();
         this.cardCounter=3;
         this.addMove();
-        if(this.pairs===9) {
+        if(this.pairs===11) {
           this.winSequence(card);
         }
         break;
@@ -188,7 +191,7 @@ class Game extends Component {
 
   assignPos(deck) {
     console.log('assigning positions');
-    let positions = ['a1','a2','a3','a4','a5','a6','a7','a8','a9','a10','a11','a12','a13','a14','a15','a16','a17','a18','a19','a20','a21','a22','a23','a24'];
+    let positions = ['a1','a2','a3','a4','a5','a6','a7','a8','a9','a10','a11','a12','a13','a14','a15','a16','a17','a18','a19','a20','a21','a22'];
     for (var i = 0; i < positions.length; i++) {
       deck[i].pos = positions[i];
       console.log("finished assigning positions");
@@ -229,9 +232,7 @@ class Game extends Component {
       a19status: 'default',
       a20status: 'default',
       a21status: 'default',
-      a22status: 'default',
-      a23status: 'default',
-      a24status: 'default'
+      a22status: 'default'
     });
   }
 
@@ -262,7 +263,7 @@ class Game extends Component {
         document.body.classList.add("mortybg");
         break;
       case this.marioDeck:
-        this.gamename="Rick & Morty";
+        this.gamename="Super Mario";
         this.setState(prevState => ({
           cardback: mariocardback
         }));
@@ -300,23 +301,28 @@ class Game extends Component {
     }));
   }
 
+  restartGame() {
+    this.initGame(this.state.deck);
+    this.menuToggle();
+  }
+
   render() {
     return (
       <div>
-        <div onClick={this.menuToggle}>menu</div>
         <div className="gameboard">
+          <div className="cardsquare" onClick={this.menuToggle}><img src={menucardback} className="cardback" alt="back of the card"/></div>
           {this.state.deck.map(card => (
-            <Card key={card.id} card={card} clickhandler={this.clickhandler} contents={this.contents}/>
+            <div key={card.id} onClick={this.clickhandler.bind(this, card)} className="cardsquare">{this.contents.call(this, card)}</div>
           ))}
         </div>
+        <MovesCard moves={this.state.moves}/>
         {this.state.showMenu &&
-        <Menu mortyButton={this.initGame.bind(this, this.mortyDeck)}
-          marioButton={this.initGame.bind(this, this.marioDeck)}
-          restart={this.initGame.bind(this, this.state.deck)}
-          gamename={this.gamename}
-          //for the menu launcher
-          imagesrc={cardbox}
-        />
+          <Menu mortyButton={this.initGame.bind(this, this.mortyDeck)}
+            marioButton={this.initGame.bind(this, this.marioDeck)}
+            restart={this.restartGame}
+            gamename={this.gamename}
+            toggle={this.menuToggle}
+          />
         }
         {this.state.showWinDialog &&
           <WinSplash  clickhandler={this.initGame.bind(this, this.state.deck)}
@@ -329,49 +335,13 @@ class Game extends Component {
   }
 }
 
-const Card = (props) => {
-  return <div onClick={props.clickhandler.bind(this, props.card)} className="cardsquare">{props.contents.call(this, props.card)}</div>
-}
+const MovesCard = (props) => {
+  return  <div className="moves-square">
+            <img src={movescardback} className="cardback" alt="back of the card"/>
+            <div className="move-tally">Moves:{props.moves}</div>
+          </div>
+  
 
-class WinSplash extends Component {
-  rating(){
-    switch(this.props.moves){
-        case 0:
-        case 1:
-        case 2:
-        case 3:
-        case 4:
-        case 5:
-        case 6:
-        case 7:
-        case 8:
-        case 9:
-        case 10:
-            return '5 stars';
-        case 11:
-        case 12:
-            return '4 stars';
-        case 13:
-        case 14:
-        case 15:
-            return '3 stars';
-        case 16:
-        case 17:
-        case 18:
-            return '2 stars';
-        default:
-            return '1 star';
-    }
-}
-
-  render() {
-    return(
-      <div className="winsplash">
-        hello you must have won or something big whoop.
-        You did it in {this.props.moves} moves, giving you a rating of {this.rating()}
-        <button onClick={this.props.clickhandler}>x</button>
-      </div>)
-  }
 }
 
 export default Game;

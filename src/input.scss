@@ -130,62 +130,10 @@ header {
     // z-index: 2;
 }
 
-.cardbox {
+#menu {
     position: fixed;
-    z-index: 9;
-    width: 88%;
-    top: 82%;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
-}
-
-.menu-wrapper {
-    position: fixed;
-    z-index: 6;
-    width: 90vw;
-    margin-left: 5vw;
-}
-
-%menu {
-    z-index: 4;
-    background-color: white;
-    position: absolute;
-    // height:10%;
-    width: 100%;
-    border-radius: 10% 10% 10% 10%;
-    border: 1px solid black;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
-}
-
-.menu-static {
-    @extend %menu;
-    top: 60%;
-}
-
-.menu-hidden {
-    display: none;
-}
-
-.menu-up {
-    @extend %menu;
-    animation-name: cardflyup;
-}
-
-.menu-down {
-    @extend %menu;
-    animation-name: cardflydown;
-}
-
-/* The animation code */
-@keyframes cardflyup {
-    from {top: 82vh;}
-    to {top: 27vh;}
-}
-
-@keyframes cardflydown {
-    from {top: 27vh;}
-    to {top: 82vh;}
+    top: 50%;
+    z-index: 2;
 }
 
 .winsplash {
@@ -200,11 +148,15 @@ header {
 
 //individual cards
 
-.cardsquare {
+%cardtemplate {
     float: left;
     width: 22.5vw;
     // top right bottom left
     margin: 0 2vw 0.2vh 0;
+}
+
+.cardsquare {
+    @extend %cardtemplate;
 }
 
 .cardback,
@@ -217,6 +169,16 @@ header {
     opacity: 0.5;
 }
 
+//menu and moves
+
+.fullscreenmenu {
+    position: fixed;
+    height:100vh;
+    width: 100vw;
+    // background: rgba(224, 230, 224, 0.9);
+    z-index: 2;
+}
+
 //example use of the media query (mq) mixin.  not actually used in site.
 .site-header {
     padding: 2rem;
@@ -227,17 +189,17 @@ header {
     }
 }
 
-#clickmask {
-    position: fixed;
-    top:0vh;
-    left:0vw;
-    // background-color: green;
-    width: 100vw;
-    height: 100vh;
-    z-index: 3;
-    opacity: 0.5;
+.moves-square {
+    @extend %cardtemplate;
+    position: relative;
+    z-index: 2;
 }
 
+.move-tally {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+}
 
 
 
