@@ -42,14 +42,14 @@ class Menu extends Component {
                     {/* actual card the pops out with options on */}
                     <MenuCard gamename = {this.props.gamename} mortyButton = {this.props.mortyButton} marioButton={this.props.marioButton} restart={this.props.restart}/>
                 </div>
-                <img className="cardbox" onClick={this.clickhandler.bind(this)} src={this.props.imagesrc} alt="card box"/>
+                {/* <img className="cardbox" onClick={this.clickhandler.bind(this)} src={this.props.imagesrc} alt="card box"/> */}
             </div>
         )
     }
 }
 
 const MenuCard = (props) => {
-    return  <div id="menu" className="menu-hidden">
+    return  <div id="menu" className="menu-static">
                 <div className="newgamelabel">New Game:</div>
                 <div className="newgamebuttons">
                     <div className="btn">

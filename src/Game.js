@@ -63,6 +63,7 @@ class Game extends Component {
     this.matchCheck = this.matchCheck.bind(this);
     this.checkHand = this.checkHand.bind(this);
     this.contents = this.contents.bind(this);
+    this.menuToggle = this.menuToggle.bind(this);
   }
   
   resetCounter() {
@@ -237,13 +238,6 @@ class Game extends Component {
   componentWillMount() {
     this.initGame(this.mortyDeck);
     document.body.classList.add('mortybg');
-    window.addEventListener("load",function() {
-      // Set a timeout...
-      setTimeout(function(){
-        // Hide the address bar!
-        window.scrollTo(0, 1);
-      }, 0);
-    });
   }
 
   componentDidMount() {
@@ -307,11 +301,13 @@ class Game extends Component {
   render() {
     return (
       <div>
+        <div onClick={this.menuToggle}>menu</div>
         <div className="gameboard">
           {this.state.deck.map(card => (
             <Card key={card.id} card={card} clickhandler={this.clickhandler} contents={this.contents}/>
           ))}
         </div>
+        {this.state.showMenu &&
         <Menu mortyButton={this.initGame.bind(this, this.mortyDeck)}
           marioButton={this.initGame.bind(this, this.marioDeck)}
           restart={this.initGame.bind(this, this.state.deck)}
@@ -319,6 +315,7 @@ class Game extends Component {
           //for the menu launcher
           imagesrc={cardbox}
         />
+        }
         {this.state.showWinDialog &&
           <WinSplash  clickhandler={this.initGame.bind(this, this.state.deck)}
                       moves={this.state.moves}
