@@ -46,6 +46,10 @@ $breakpoints: (
     background-image: url('./images/mortybg.jpg');
 }
 
+.noscroll {
+    overflow: hidden;
+}
+
 //stats bar
 
 header {

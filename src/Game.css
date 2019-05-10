@@ -15,6 +15,10 @@
   background-image: url("./images/mortybg.jpg");
 }
 
+.noscroll {
+  overflow: hidden;
+}
+
 header {
   color: red;
   font-size: 116%;
