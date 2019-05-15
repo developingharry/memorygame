@@ -87,7 +87,8 @@ header {
 
 .gameboard {
   width: 98vw;
-  margin-left: 1.1vw;
+  margin-left: 2vw;
+  margin-top: 1vh;
 }
 
 #menu {
@@ -106,7 +107,7 @@ header {
   padding: 10px;
 }
 
-.moves-square, .cardsquare {
+.icon, .cardsquare {
   float: left;
   width: 22.5vw;
   margin: 0 2vw 0.2vh 0;
@@ -126,7 +127,30 @@ header {
   position: fixed;
   height: 100vh;
   width: 100vw;
+  background: rgba(224, 230, 224, 0.9);
   z-index: 2;
+  top: 0;
+}
+
+.menu-heading {
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+
+.deckpicker {
+  width: 80vw;
+  margin: 0 auto;
+  padding-top: 3vh;
+}
+
+.decklabel {
+  width: 100%;
+}
+
+.menubutton {
+  position: relative;
+  z-index: 4;
 }
 
 .site-header {
@@ -140,15 +164,20 @@ header {
   }
 }
 
-.moves-square {
+.icon {
   position: relative;
   z-index: 2;
+  text-align: center;
 }
 
-.move-tally {
+.icon-label {
   position: absolute;
   z-index: 3;
   top: 50%;
+  left: 50%;
+  font-family: "Fredericka the Great", cursive;
+  font-size: large;
+  transform: translate(-50%, -50%);
 }
 
 /*# sourceMappingURL=Game.css.map */

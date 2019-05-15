@@ -3,8 +3,7 @@ import './Game.css';
 import * as data from './Decks.json';
 import ramcardback from './images/ramcardback.png';
 import mariocardback from './images/mariocardback.png';
-import menucardback from './images/menu.png';
-import movescardback from './images/moves.png'
+import blankcardback from './images/blank.jpg';
 import Menu from './Menu.js';
 import WinSplash from './WinSplash.js';
 
@@ -309,12 +308,12 @@ class Game extends Component {
     return (
       <div>
         <div className="gameboard">
-          <div className="cardsquare" onClick={this.menuToggle}><img src={menucardback} className="cardback" alt="back of the card"/></div>
+          <Icon clickhandler={this.menuToggle} contents="MENU"/>          
           {this.state.deck.map(card => (
             <div key={card.id} onClick={this.clickhandler.bind(this, card)} className="cardsquare">{this.contents.call(this, card)}</div>
           ))}
+          <Icon optionalheading="MOVES" contents={this.state.moves}/>
         </div>
-        <MovesCard moves={this.state.moves}/>
         {this.state.showMenu &&
           <Menu mortyButton={this.initGame.bind(this, this.mortyDeck)}
             marioButton={this.initGame.bind(this, this.marioDeck)}
@@ -334,13 +333,14 @@ class Game extends Component {
   }
 }
 
-const MovesCard = (props) => {
-  return  <div className="moves-square">
-            <img src={movescardback} className="cardback" alt="back of the card"/>
-            <div className="move-tally">Moves:{props.moves}</div>
+const Icon = (props) => {
+  return <div onClick={props.clickhandler} className="icon">
+          <img src={blankcardback} className="cardback" alt="white square"/>
+          <div className="icon-label">
+            <div>{props.optionalheading}</div>
+            <div>{props.contents}</div>
           </div>
-  
-
+        </div>
 }
 
 export default Game;
