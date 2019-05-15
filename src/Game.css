@@ -19,6 +19,18 @@
   overflow: hidden;
 }
 
+.introscreen {
+  position: fixed;
+  background-color: #9fe49f;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  text-align: center;
+  padding-top: 33vh;
+}
+
 header {
   color: red;
   font-size: 116%;
@@ -104,7 +116,32 @@ header {
   transform: translate(-50%, -50%);
   background-color: white;
   border: 1px solid black;
-  padding: 10px;
+  z-index: 3;
+}
+
+.win-animation {
+  width: 100%;
+}
+
+.you-won {
+  font-family: "Fredericka the Great", cursive;
+  text-align: center;
+  font-size: x-large;
+}
+
+.rating {
+  text-align: center;
+}
+
+.win-restart {
+  text-align: center;
+}
+
+.clickmask {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 2;
 }
 
 .icon, .cardsquare {

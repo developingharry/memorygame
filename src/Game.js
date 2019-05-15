@@ -32,6 +32,7 @@ class Game extends Component {
       moves: 0,
       showWinDialog: false,
       showMenu: false,
+      showIntro: true,
       cardback: ramcardback,
       a1status: 'default',
       a2status: 'default',
@@ -253,7 +254,7 @@ class Game extends Component {
     this.splitDeck(deck);
     switch(deck) {
       case this.mortyDeck:
-        this.gamename="Rick & Morty";
+        this.gamename="Rick and Morty";
         this.setState(prevState => ({
           cardback: ramcardback
         }));
@@ -304,10 +305,17 @@ class Game extends Component {
     this.menuToggle();
   }
 
+  hidesplash() {
+    this.setState(prevState => ({
+      showIntro: false
+    }))
+  }
+
   render() {
     return (
       <div>
         <div className="gameboard">
+          {this.state.showIntro &&<Intro clickhandler={this.hidesplash.bind(this)}/>}
           <Icon clickhandler={this.menuToggle} contents="MENU"/>          
           {this.state.deck.map(card => (
             <div key={card.id} onClick={this.clickhandler.bind(this, card)} className="cardsquare">{this.contents.call(this, card)}</div>
@@ -325,12 +333,22 @@ class Game extends Component {
         {this.state.showWinDialog &&
           <WinSplash  clickhandler={this.initGame.bind(this, this.state.deck)}
                       moves={this.state.moves}
-                      rating={this.state.rating}            
+                      rating={this.state.rating}
+                      gamename={this.gamename}            
           />  
         }
       </div>
     )
   }
+}
+
+const Intro = (props) => {
+  return <div onClick={props.clickhandler} className="introscreen">
+            <h1>Harry's amazing Memory Game!</h1>
+            <div>Find all 11 pairs in as few moves as possible.</div>
+            <div>Open the menu to change decks.</div>
+            <p>Click anywhere to start!</p>
+          </div>
 }
 
 const Icon = (props) => {

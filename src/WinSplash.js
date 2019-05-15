@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './Game.css';
+import mario from './images/splash/mario.gif';
+import rick from './images/splash/tinyrick.gif';
 
 class WinSplash extends Component {
     rating(){
@@ -15,30 +17,44 @@ class WinSplash extends Component {
             case 8:
             case 9:
             case 10:
-                return '5 stars';
+                return '☆☆☆☆☆';
             case 11:
             case 12:
-                return '4 stars';
+                return '☆☆☆☆';
             case 13:
             case 14:
             case 15:
-                return '3 stars';
+                return '☆☆☆';
             case 16:
             case 17:
             case 18:
-                return '2 stars';
+                return '☆☆';
             default:
-                return '1 star';
+                return '☆';
         }
     }
 
     render() {
         return(
-            <div className="winsplash">
-                hello you must have won or something big whoop.
-                You did it in {this.props.moves} moves, giving you a rating of {this.rating()}
-                <button onClick={this.props.clickhandler}>x</button>
-            </div>)
+
+            <div>
+                              <div className="clickmask"></div>
+                            <div className="winsplash">
+  
+                <div className="you-won">You won!</div>
+                {this.props.gamename}
+                {this.props.gamename === 'Rick and Morty' && <img className="win-animation" src={rick}/>}
+                {this.props.gamename === 'Super Mario' && <img className="win-animation" src={mario}/>}
+                <div className="rating">Rating:{this.rating()}</div>
+                <div className="win-restart" onClick={this.props.clickhandler}>RESTART</div>
+            </div>
+            </div>
+            
+            
+            
+            
+            
+            )
     }
 }
 
