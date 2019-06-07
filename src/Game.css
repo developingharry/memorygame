@@ -37,13 +37,6 @@ header {
   margin-bottom: 1vh;
   text-align: center;
 }
-@media only screen and (min-width: 360px) {
-  header {
-    color: red;
-    font-size: 116%;
-    margin-bottom: 1vh;
-  }
-}
 
 .newgamebuttons {
   border: 1px dashed black;
@@ -102,6 +95,13 @@ header {
   margin-left: 2vw;
   margin-top: 1vh;
 }
+@media only screen and (min-width: 1024px) {
+  .gameboard {
+    width: 76vw;
+    margin-left: 15vw;
+    margin-top: 3.1vh;
+  }
+}
 
 #menu {
   position: fixed;
@@ -148,6 +148,13 @@ header {
   float: left;
   width: 22.5vw;
   margin: 0 2vw 0.2vh 0;
+}
+@media only screen and (min-width: 1024px) {
+  .icon, .cardsquare {
+    float: left;
+    width: 11vw;
+    margin: 0 0.3vw 0.01vh 0;
+  }
 }
 
 .cardback,

@@ -68,11 +68,6 @@ header {
     font-size: 116%;
     margin-bottom: 1vh;
     text-align: center;
-    @include mq('phone') {
-        color: red;
-        font-size: 116%;
-        margin-bottom: 1vh;
-    }
 }
 
 .newgamebuttons {
@@ -139,6 +134,11 @@ header {
     width: 98vw;
     margin-left: 2vw;
     margin-top: 1vh;
+    @include mq('tablet-wide') {
+        width: 76vw;
+        margin-left: 15vw;
+        margin-top: 3.1vh;
+    }
     // z-index: 2;
 }
 
@@ -189,6 +189,11 @@ header {
     width: 22.5vw;
     // top right bottom left
     margin: 0 2vw 0.2vh 0;
+    @include mq('tablet-wide') {
+        float: left;
+        width: 11vw;
+        margin: 0 0.3vw 0.01vh 0;
+    }
 }
 
 .cardsquare {
