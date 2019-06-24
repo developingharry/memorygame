@@ -69,16 +69,20 @@ class Game extends Component {
   }
   
   resetCounter() {
+    // the code tracks whether the card you are holding is the first of two cards, the second, or a new "draw".
+    // this resets for when a new draw starts.
     this.cardCounter=1;
   }
 
   addMove() {
+    //increments the moves counter (not many stats to track in this game)
     this.setState(prevState => ({
       moves: this.state.moves + 1
     }));
   };
 
   matchCheck() {
+    //simply checks if the card in the virtual left hand matches the one in the right.
     let lefth=this.leftHand;
     let righth=this.rightHand;
     if(lefth===righth) {
@@ -88,12 +92,6 @@ class Game extends Component {
     }
   }
 
-  winSequence() {
-    this.setState({
-      showWinDialog: true
-    })
-  }
-
   acknowledgeMatch(){
     let leftcard = this.leftcardtoflip.pos + 'status';
     let rightcard = this.rightcardtoflip.pos + 'status';
@@ -101,6 +99,7 @@ class Game extends Component {
       [leftcard]: 'solved',
       [rightcard]: 'solved',
     }));
+    //take the two matched cards out of the game, so to speak, and increment the pairs counter.
     this.pairs++;
     this.matchFound=true;
     this.cardCounter=1;
@@ -112,6 +111,7 @@ class Game extends Component {
   }
 
   checkHand(card) {
+    //this switch basically checks if this is the first card of a turn, the second, or the start of a new turn.
     switch(this.cardCounter) {
       case 1:
         this.leftHand=card.name;
@@ -127,7 +127,9 @@ class Game extends Component {
         this.cardCounter=3;
         this.addMove();
         if(this.pairs===11) {
-          this.winSequence(card);
+          this.setState({
+            showWinDialog: true
+          })
         }
         break;
       case 3:
@@ -143,12 +145,14 @@ class Game extends Component {
         this.cardCounter=2;
         break;
       default:
-        console.log('something went pear-shaped');
+        //note to self in case somehow someone manages to break the card count
+        console.log('something went pear-shaped with the card count');
         break;
     }
   };
 
   flipBack() {
+    // if cards are unmatched, flip them back
     let leftcard = this.leftcardtoflip.pos + 'status';
     let rightcard = this.rightcardtoflip.pos + 'status';
     this.setState(prevState => ({
@@ -158,6 +162,7 @@ class Game extends Component {
   }
   
   clickhandler(card) {
+    //check what clicking should do to a given card, if anything, based on its current state.
       let chosenCard = `${card.pos}status`;
       switch(this.state[chosenCard]) {
         case 'default':
@@ -189,6 +194,7 @@ class Game extends Component {
   };
 
   assignPos(deck) {
+    // the cards all shuffled, I now assign positions to each, so I can keep track of them when making comparisons.
     console.log('assigning positions');
     let positions = ['a1','a2','a3','a4','a5','a6','a7','a8','a9','a10','a11','a12','a13','a14','a15','a16','a17','a18','a19','a20','a21','a22'];
     for (var i = 0; i < positions.length; i++) {
@@ -239,10 +245,10 @@ class Game extends Component {
     this.initGame(this.mortyDeck);
     document.body.classList.add('mortybg');
     document.body.classList.toggle("noscroll", true);
-
   }
 
   componentDidMount() {
+    // a small tweak to stop flashing of hidden divs
     this.setState({loadmenu: true});
   }
 
@@ -275,6 +281,7 @@ class Game extends Component {
   }
 
   contents(card) {
+    // generates the contents of a cardimage, whether the front or the back, or solved.
     let chosenCard = `${card.pos}status`;
     switch(this.state[chosenCard]) {
       case 'flipped':
@@ -284,14 +291,6 @@ class Game extends Component {
       default:
       return <img src={this.state.cardback} className="cardback" alt="back of the card"/>;
     }
-  }
-
-  splitDeck(deck) {
-    let a = deck.slice(0,7);
-    let b = deck.slice(7,14);
-    let c = deck.slice(7,9);
-    let d = deck.slice(10,15);
-    this.setState({rowA:a,rowB:b,rowC:c,rowD:d});
   }
 
   menuToggle() {
@@ -306,6 +305,7 @@ class Game extends Component {
   }
 
   hidesplash() {
+    // splash meaning splash screen
     this.setState(prevState => ({
       showIntro: false
     }))
