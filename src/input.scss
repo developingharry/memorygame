@@ -213,7 +213,7 @@ header {
 //menu and moves
 
 .fullscreenmenu {
-    position: fixed;
+    position: absolute;
     height:100vh;
     width: 100vw;
     background: rgba(224, 230, 224, 0.9);
@@ -228,9 +228,13 @@ header {
 }
 
 .deckpicker {
+    position: relative;
     width: 80vw;
     margin: 0 auto;
     padding-top: 3vh;
+    @include mq('tablet-wide') {
+        width: 40vw;
+    }
 }
 
 .decklabel {

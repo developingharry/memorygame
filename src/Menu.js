@@ -16,7 +16,6 @@ const Menu = (props) => {
                 <h2 className="menu-heading" onClick={props.restart}>RESTART</h2>
                 <h2 className="menu-heading" onClick={props.restart}>CLOSE MENU</h2>
             </div>
-
         </div>
     )
 }
