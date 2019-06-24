@@ -70,4 +70,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 #memorygamereact
 
-Live Demo: https://bit.ly/2X6Ii4r
+Live Demo: https://kind-shaw-a7e1c4.netlify.com/
